@@ -1,5 +1,6 @@
 # fullstackopen-part0-exercises
 
+## Exercise 0.4
 ```mermaid
 sequenceDiagram
     participant client
