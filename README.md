@@ -9,6 +9,8 @@ The sequence of events that occurs is depicted below.
 sequenceDiagram
     participant client
     participant server
-    client->>server: 1. user input in form field 2. submit button clicked 3. form performs action be using POST method to new_note directory
+    client->>server: 1. user input in form field 
+    2. submit button clicked 
+    3. form performs action be using POST method to new_note directory
     server->>client: replies with the HTML document
 ```
