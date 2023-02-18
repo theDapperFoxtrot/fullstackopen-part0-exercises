@@ -12,5 +12,5 @@ sequenceDiagram
     client->>server: 1. user input in form field 
     client->>server: 2. submit button clicked 
     client->>server: 3. form performs action be using POST method to /new_note directory (address)
-    server->>client: 4. the note is added to the page and redirects the user back to the /notes address with the updated entry included
+    server-->>client: 4. the note is added to the page and redirects the user back to the /notes address with the updated entry included
 ```
