@@ -14,7 +14,7 @@ sequenceDiagram
     client->>server: 3. form performs action be using POST method to /new_note directory (address)
     server-->>client: 4. the note is added to the page
     Note over server, client: and redirects the user back to the /notes address with the updated entry included
-    server-->>client: 5. sends css styling of /notes address
-    server-->>client: 6. sends javascript of /notes address
-    server-->>client: 7. sends json data of /notes address
+    server-->>client: 5. GET css styling of /notes address
+    server-->>client: 6. GET javascript of /notes address
+    server-->>client: 7. GET json data of /notes address
 ```
