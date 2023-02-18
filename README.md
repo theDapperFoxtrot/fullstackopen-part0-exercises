@@ -2,10 +2,9 @@
 
 ```mermaid
 sequenceDiagram
-    participant dotcom
-    participant iframe
-    participant viewscreen
-    dotcom->>iframe: loads html w/ iframe url
+    participant client
+    participant server
+    client->>server: request the web application
     iframe->>viewscreen: request template
     viewscreen->>iframe: html & javascript
     iframe->>dotcom: iframe ready
