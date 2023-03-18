@@ -30,6 +30,6 @@ sequenceDiagram
     
     client->>server: GET 200 https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>client: json array of objects is retrieved
+    server-->>client: json array of objects is retrieved and populates the page
     deactivate server
 ```
