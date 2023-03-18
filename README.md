@@ -32,8 +32,8 @@ sequenceDiagram
     activate server
     server-->>client: json array of objects is retrieved and populates the page
     deactivate server
-    Note over server: This app will reload the page for every submission.
 ```
+This app will reload the page for every submission.
 
 ## Exercise 0.5
 The user navigates to the page https://studies.cs.helsinki.fi/exampleapp/spa by following an anchor or entering the URL.
@@ -67,8 +67,9 @@ sequenceDiagram
     activate server
     server-->>client: json array of objects is retrieved and populates the page
     deactivate server
-    Note over server: This app will render submissions without the need to reload the page.
 ```
+This app will render submissions without the need to reload the page.
+
 ## Exercise 0.6
 The user navigates to the page https://studies.cs.helsinki.fi/exampleapp/spa by following an anchor or entering the URL.
 
@@ -84,6 +85,5 @@ sequenceDiagram
     activate server
     server-->>client: render note, add data to json file
     deactivate server
-    
-    Note over server: The SPA can take the input and render it to the page without the need to reload, while also committing the data to the json file.
 ```
+The SPA can take the input and render it to the page without the need to reload, while also committing the data to the json file.
