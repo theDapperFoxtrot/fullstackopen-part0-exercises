@@ -71,7 +71,7 @@ sequenceDiagram
 This app will render submissions without the need to reload the page.
 
 ## Exercise 0.6
-The user navigates to the page https://studies.cs.helsinki.fi/exampleapp/spa by following an anchor or entering the URL.
+The user creates a new note using the single-page version of the app. https://studies.cs.helsinki.fi/exampleapp/spa
 
 The sequence of events that occurs is depicted below.
 
