@@ -33,3 +33,37 @@ sequenceDiagram
     server-->>client: json array of objects is retrieved and populates the page
     deactivate server
 ```
+
+## Exercise 0.5
+The user navigates to the page https://studies.cs.helsinki.fi/exampleapp/spa by following an anchor or entering the URL.
+
+The sequence of events that occurs is depicted below.
+
+```mermaid
+sequenceDiagram
+    participant client
+    participant server
+    
+    
+    client->>server: GET 200 https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>client: HTML document loaded
+    deactivate server
+    
+    
+    client->>server: GET 304 https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>client: CSS document loaded
+    deactivate server
+    
+    
+    client->>server: GET 200 https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate server
+    server-->>client: JavaScript is loaded
+    deactivate server
+    
+    client->>server: GET 200 https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>client: json array of objects is retrieved and populates the page
+    deactivate server
+```
