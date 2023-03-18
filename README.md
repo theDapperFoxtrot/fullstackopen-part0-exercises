@@ -32,7 +32,7 @@ sequenceDiagram
     activate server
     server-->>client: json array of objects is retrieved and populates the page
     deactivate server
-    Note: This app will reload the page for every submission.
+    Note over server: This app will reload the page for every submission.
 ```
 
 ## Exercise 0.5
