@@ -67,4 +67,23 @@ sequenceDiagram
     activate server
     server-->>client: json array of objects is retrieved and populates the page
     deactivate server
+    Note over server: This app will render submissions without the need to reload the page.
+```
+## Exercise 0.6
+The user navigates to the page https://studies.cs.helsinki.fi/exampleapp/spa by following an anchor or entering the URL.
+
+The sequence of events that occurs is depicted below.
+
+```mermaid
+sequenceDiagram
+    participant client
+    participant server
+    
+    
+    client->>server: GET 201 https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>client: the SPA can take the input and render it to the page without the need to reload, while also committing the data to the json file
+    deactivate server
+    
+    Note over server: This app will render submissions without the need to reload the page.
 ```
