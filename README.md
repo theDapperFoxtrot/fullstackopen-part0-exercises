@@ -9,7 +9,25 @@ The sequence of events that occurs is depicted below.
 sequenceDiagram
     participant client
     participant server
-    client->>server: 1. user input in form field 
+    
+    1.
+    client->>server: POST 302 https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server-->>client: input value is saved to the data
+    deactivate server
+    
+    2.
+    client->>server: GET 304 https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>client: new note appears at the bottom of the list
+    deactivate server
+    
+    3.
+    client->>server: GET 304 https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>client: GET 304 https://studies.cs.helsinki.fi/exampleapp/notes
+    deactivate server
+    
     client->>server: 2. submit button clicked 
     client->>server: 3. form performs action be using POST method to /new_note directory (address)
     server-->>client: 4. the note is added to the page
