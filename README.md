@@ -25,14 +25,11 @@ sequenceDiagram
     
     client->>server: GET 304 https://studies.cs.helsinki.fi/exampleapp/main.js
     activate server
-    server-->>client: GET 304 https://studies.cs.helsinki.fi/exampleapp/notes
+    server-->>client: JavaScript is loaded
     deactivate server
     
-    client->>server: 2. submit button clicked 
-    client->>server: 3. form performs action be using POST method to /new_note directory (address)
-    server-->>client: 4. the note is added to the page
-    Note over server, client: and redirects the user back to the /notes address with the updated entry included
-    server-->>client: 5. GET css styling of /notes address
-    server-->>client: 6. GET javascript of /notes address
-    server-->>client: 7. GET json data of /notes address
+    client->>server: GET 200 https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>client: json array of objects is retrieved
+    deactivate server
 ```
