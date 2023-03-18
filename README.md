@@ -82,8 +82,8 @@ sequenceDiagram
     
     client->>server: GET 201 https://studies.cs.helsinki.fi/exampleapp/new_note_spa
     activate server
-    server-->>client: the SPA can take the input and render it to the page without the need to reload, while also committing the data to the json file
+    server-->>client: render note, add data to json file
     deactivate server
     
-    Note over server: This app will render submissions without the need to reload the page.
+    Note over server: The SPA can take the input and render it to the page without the need to reload, while also committing the data to the json file.
 ```
