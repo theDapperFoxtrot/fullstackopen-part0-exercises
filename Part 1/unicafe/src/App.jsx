@@ -1,28 +1,44 @@
 import { useState } from "react";
+import Heading from "./components/Heading";
 import Button from "./components/Button";
-import Ratings from "./components/Ratings";
+import Display from "./components/Display";
+import Statistics from "./components/Statistics";
 
 function App() {
 	const [good, setGood] = useState(0);
 	const [neutral, setNeutral] = useState(0);
 	const [bad, setBad] = useState(0);
 
-	let cafe = [
-		{ name: "good", score: good },
-		{ name: "neutral", score: neutral },
-		{ name: "bad", score: bad },
-	];
+	let content = {
+		heading1: "Unicafe Feedback:",
+		heading2: "Ratings:",
+		cafe: [
+			{ name: "Good:", score: good },
+			{ name: "Neutral:", score: neutral },
+			{ name: "Bad:", score: bad },
+		],
+	};
+
+	const voteGood = () => {
+		setGood(good + 1);
+	};
+
+	const voteNeutral = () => {
+		setNeutral(neutral + 1);
+	};
+
+	const voteBad = () => {
+		setBad(bad - 1);
+	};
 
 	return (
 		<div className="App">
-			<h2>Unicafe Feedback:</h2>
-			<Button handleClick={setGood} text="Good" />
-			<Button handleClick={setNeutral} text="Neutral" />
-			<Button handleClick={setBad} text="Bad" />
-			<h2>Ratings:</h2>
-			<Ratings cafe={cafe[0]} />
-			<Ratings cafe={cafe[1]} />
-			<Ratings cafe={cafe[2]} />
+			<Heading content={content} />
+			<Button handleClick={voteGood} text="Good" />
+			<Button handleClick={voteNeutral} text="Neutral" />
+			<Button handleClick={voteBad} text="Bad" />
+			<Display content={content} />
+			<Statistics content={content} />
 		</div>
 	);
 }
