@@ -1,7 +1,6 @@
 // import { useState } from "react";
-import Header from "./components/Header";
-import Content from "./components/Content";
 import Total from "./components/Total";
+import Course from "./components/Course";
 // import Button from "./components/Button";
 // import Display from "./components/Display";
 
@@ -14,26 +13,34 @@ const App = () => {
 
 	const course = {
 		name: "Half Stack application development",
+		id: 1,
 		parts: [
 			{
 				name: "Fundamentals of React",
 				exercises: 10,
+				id: 1,
 			},
 			{
 				name: "Using props to pass data",
 				exercises: 7,
+				id: 2,
 			},
 			{
 				name: "State of a component",
 				exercises: 14,
+				id: 3,
+			},
+			{
+				name: "Redux",
+				exercises: 11,
+				id: 4,
 			},
 		],
 	};
 
 	return (
 		<>
-			<Header course={course} />
-			<Content course={course} />
+			<Course course={course} />
 			<Total course={course} />
 			{/* This was just for fun */}
 			{/* <Display counter={counter} />

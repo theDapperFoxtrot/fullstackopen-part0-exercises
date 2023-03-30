@@ -1,3 +1,11 @@
-const Total = ({ course }) => <p>Number of exercises {course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises}</p>;
+const Total = ({ course }) => {
+	const exerciseTotal = course.parts.reduce((sum, part) => sum + part.exercises, 0);
+
+	return (
+		<p>
+			<strong>Total of {exerciseTotal} exercises</strong>
+		</p>
+	);
+};
 
 export default Total;
