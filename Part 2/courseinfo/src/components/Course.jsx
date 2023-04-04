@@ -3,7 +3,9 @@ import Content from "./Content";
 const Course = ({ course }) => {
 	return (
 		<>
-			<Content course={course} />
+			{course.map((eachCourse) => (
+				<Content eachCourse={eachCourse} />
+			))}
 		</>
 	);
 };

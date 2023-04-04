@@ -1,6 +1,4 @@
-const Header = ({ course }) => {
-	const courseName = course.map((eachCourse) => <h2 key={eachCourse.id}>{eachCourse.name}</h2>);
-
-	return <>{courseName}</>;
+const Header = ({ title }) => {
+	return <h2>{title}</h2>;
 };
 export default Header;

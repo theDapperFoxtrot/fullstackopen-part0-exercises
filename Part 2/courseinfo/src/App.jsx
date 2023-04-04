@@ -57,13 +57,8 @@ const App = () => {
 
 	return (
 		<>
+			<h1>Web Development Curriculum</h1>
 			<Course course={course} />
-			{/* This was just for fun */}
-			{/* <Display counter={counter} />
-			<Button handleClick={decrement} text="-" />
-			<Button handleClick={reset} text="Reset" />
-			<Button handleClick={increment} text="+" /> */}
-			{/* This was just for fun */}
 		</>
 	);
 };
