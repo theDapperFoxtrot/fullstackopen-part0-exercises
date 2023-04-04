@@ -1,14 +1,18 @@
+/* This was just for fun */
 // import { useState } from "react";
-import Course from "./components/Course";
 // import Button from "./components/Button";
 // import Display from "./components/Display";
+/* This was just for fun */
+import Course from "./components/Course";
 
 const App = () => {
+	/* This was just for fun */
 	// const [counter, setCounter] = useState(0);
 
 	// const increment = () => setCounter(counter + 1);
 	// const decrement = () => setCounter(counter - 1);
 	// const reset = () => setCounter(0);
+	/* This was just for fun */
 
 	const course = [
 		{
@@ -59,6 +63,12 @@ const App = () => {
 		<>
 			<h1>Web Development Curriculum</h1>
 			<Course course={course} />
+			{/* This was just for fun */}
+			{/* <Display counter={counter} />
+			<Button handleClick={decrement} text="-" />
+			<Button handleClick={reset} text="Reset" />
+			<Button handleClick={increment} text="+" /> */}
+			{/* This was just for fun */}
 		</>
 	);
 };
