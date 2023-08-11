@@ -81,7 +81,7 @@ sequenceDiagram
     participant server
     
     
-    client->>server: GET 201 https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    client->>server: POST 201 https://studies.cs.helsinki.fi/exampleapp/new_note_spa
     activate server
     server-->>client: render note, add data to json file
     deactivate server
