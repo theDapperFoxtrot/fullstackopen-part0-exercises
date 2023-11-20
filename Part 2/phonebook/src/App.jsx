@@ -1,4 +1,9 @@
 import { useState } from "react";
+// Components
+import Contacts from "./components/Contacts";
+import Search from "./components/Search";
+import Form from "./components/Form";
+
 import "./App.css";
 
 function App() {
@@ -11,12 +16,6 @@ function App() {
 	const [newName, setNewName] = useState("");
 	const [newNumber, setNewNumber] = useState("");
 	const [filter, setFilter] = useState("");
-
-	// const peeps = persons.map((person) => (
-	// 	<li key={person.name}>
-	// 		{person.name} - {person.number}
-	// 	</li>
-	// ));
 
 	const addPerson = (event) => {
 		event.preventDefault();
@@ -47,34 +46,13 @@ function App() {
 	return (
 		<>
 			<h1>Phonebook</h1>
-			<h2>Add a contact</h2>
-			<form onSubmit={addPerson}>
-				<div>
-					Name:
-					<input
-						value={newName}
-						onChange={handleName}
-					/>
-					Number:
-					<input
-						value={newNumber}
-						onChange={handleNumber}
-					/>
-				</div>
-				<div>
-					<button type="submit">Add</button>
-				</div>
-			</form>
-			<h2>Search contacts</h2>
-			<input onChange={handleSearch} />
-			<h2>Numbers</h2>
-			<ul>
-				{filteredList.map((person) => (
-					<li key={person.name}>
-						{person.name} - {person.number}
-					</li>
-				))}
-			</ul>
+			<Form
+				handleNumber={handleNumber}
+				handleName={handleName}
+				addPerson={addPerson}
+			/>
+			<Search handleSearch={handleSearch} />
+			<Contacts filteredList={filteredList} />
 		</>
 	);
 }
