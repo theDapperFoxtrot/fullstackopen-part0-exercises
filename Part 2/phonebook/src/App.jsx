@@ -1,18 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+// libraries
+import axios from "axios";
 // Components
 import Contacts from "./components/Contacts";
 import Search from "./components/Search";
 import Form from "./components/Form";
+// Services
+import contactsService from "./services/contacts";
 
 import "./App.css";
 
 function App() {
-	const [persons, setPersons] = useState([
-		{ name: "Arto Hellas", number: "0123456789" },
-		{ name: "Jimbo Jambo", number: "1234567890" },
-		{ name: "Ilmo ", number: "2345678901" },
-		{ name: "Jaakko", number: "3456789012" },
-	]);
+	const [persons, setPersons] = useState([]);
+	// Fetching from data.json
+	useEffect(() => {
+		axios.get("http://localhost:3001/contacts").then((response) => {
+			setPersons(response.data);
+		});
+	}, [persons]);
 	const [newName, setNewName] = useState("");
 	const [newNumber, setNewNumber] = useState("");
 	const [filter, setFilter] = useState("");
@@ -23,9 +28,7 @@ function App() {
 			alert(`${newName} is in the phonebook already!`);
 		} else {
 			const newPerson = { name: newName, number: newNumber };
-			setPersons(persons.concat(newPerson));
-			setNewNumber("");
-			setNewName("");
+			axios.post("http://localhost:3001/contacts", newPerson).then(setNewName("")).then(setNewNumber(""));
 		}
 	};
 
@@ -47,6 +50,8 @@ function App() {
 		<>
 			<h1>Phonebook</h1>
 			<Form
+				newName={newName}
+				newNumber={newNumber}
 				handleNumber={handleNumber}
 				handleName={handleName}
 				addPerson={addPerson}
