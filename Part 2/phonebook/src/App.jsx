@@ -14,21 +14,27 @@ function App() {
 	const [persons, setPersons] = useState([]);
 	// Fetching from data.json
 	useEffect(() => {
-		axios.get("http://localhost:3001/contacts").then((response) => {
-			setPersons(response.data);
-		});
+		contactsService.getAll().then((response) => setPersons(response));
 	}, [persons]);
+
+	// States
 	const [newName, setNewName] = useState("");
 	const [newNumber, setNewNumber] = useState("");
 	const [filter, setFilter] = useState("");
 
 	const addPerson = (event) => {
 		event.preventDefault();
-		if (persons.some((person) => person.name.toUpperCase() === newName.toUpperCase())) {
-			alert(`${newName} is in the phonebook already!`);
+		const newPerson = { name: newName, number: newNumber };
+		const match = persons.find((person) => person.name.toUpperCase() === newName.toUpperCase());
+		if (match) {
+			const updateConfirmation = window.confirm(`You're about to overwrite ${newName}. Do you wish to continue?`);
+			if (updateConfirmation) {
+				contactsService.update(match.id, newPerson);
+			} else {
+				return;
+			}
 		} else {
-			const newPerson = { name: newName, number: newNumber };
-			axios.post("http://localhost:3001/contacts", newPerson).then(setNewName("")).then(setNewNumber(""));
+			contactsService.create(newPerson);
 		}
 	};
 
@@ -44,6 +50,13 @@ function App() {
 		setFilter(event.target.value);
 	};
 
+	const handleDelete = (id, name) => {
+		const deleteConfirmation = window.confirm(`Are you sure you want to delete ${name}?`);
+		if (deleteConfirmation) {
+			contactsService.deleteContact(id);
+		}
+	};
+
 	const filteredList = persons.filter((person) => person.name.toUpperCase().includes(filter.toUpperCase()));
 
 	return (
@@ -57,7 +70,10 @@ function App() {
 				addPerson={addPerson}
 			/>
 			<Search handleSearch={handleSearch} />
-			<Contacts filteredList={filteredList} />
+			<Contacts
+				filteredList={filteredList}
+				handleDelete={handleDelete}
+			/>
 		</>
 	);
 }
